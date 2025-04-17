@@ -85,13 +85,20 @@ const CocktailList: React.FC<CocktailListProps> = ({ selectedTab }) => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
       {cocktails.map((cocktail) => (
-        <div key={cocktail.id} className="border rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-200">
-          {/* 실제 이미지 컴포넌트 사용 필요 */}
-          <img src={cocktail.imageUrl} alt={cocktail.name} className="w-full h-48 object-cover" />
+        <div key={cocktail.id} className="border h-100 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-200 bg-white p-3.5">
+          <div className="w-full h-40 bg-[#ee6f6f] rounded-lg"></div>
+          <div className="flex items-center mt-4">
+            <div className="w-15 h-15 bg-[#ee6f6f] rounded-full"></div>
+            <div className="flex flex-col ml-4">
+              <p className="text-[#171717] font-semibold text-xl">이승탈출넘버원</p>
+              <p className="text-[#171717bf]">Created by 이승환</p>
+            </div>
+          </div>
+          <div></div>
+          {/* <img src={cocktail.imageUrl} alt={cocktail.name} className="w-full h-48 object-cover" />
           <div className="p-4">
             <h3 className="font-semibold text-lg">{cocktail.name}</h3>
-            {/* 추가 정보 (예: 재료, 설명 등) */}
-          </div>
+          </div> */}
         </div>
       ))}
     </div>
