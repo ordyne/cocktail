@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Header() {
 	return (
@@ -6,7 +7,9 @@ export default function Header() {
 			<header>
 				<div className="flex justify-between items-center w-full h-16">
 					<div>
-						<Link href="/" className="text-[#ee6f6f] shadow-[0_4px_4px_0_rgba(0,0,0,0.25)] fill-[#ee6f6f] text-5xl">Soool</Link>
+						<Link href="/" >
+							<Image src="/images/logo.png" alt="로고" width={100} height={100} className="w-40 h-20" />
+						</Link>
 					</div>
 					<div className="w-md">
 						<input

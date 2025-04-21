@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import CocktailList from "@/components/CocktailList"; // 새로 만들 컴포넌트 임포트
+import ImageUploader from "@/components/imageUploader";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<string>('All'); // 기본값 'All'
@@ -24,6 +25,7 @@ export default function Home() {
       </div>
       <div className="mt-20 flex justify-between items-center">
         <p className="font-semibold text-[#EE6F6F] text-3xl">Most Popular Cocktails</p>
+        <ImageUploader />
         <ul className="flex gap-4">
          {tabs.map((tab) => (
             <li key={tab}>
