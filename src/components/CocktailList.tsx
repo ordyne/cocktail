@@ -4,6 +4,7 @@ import Image from "next/image";
 
 interface CocktailListProps {
   selectedTab: string;
+  limit?: number; // optional prop to limit the number of cocktails displayed
 }
 
 interface Cocktail {
@@ -12,7 +13,7 @@ interface Cocktail {
   image: string;
 }
 
-const CocktailList: React.FC<CocktailListProps> = ({ selectedTab }) => {
+const CocktailList: React.FC<CocktailListProps> = ({ selectedTab, limit }) => {
   const [cocktails, setCocktails] = useState<Cocktail[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -60,7 +61,7 @@ const CocktailList: React.FC<CocktailListProps> = ({ selectedTab }) => {
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-      {cocktails.map((cocktail) => (
+      {(limit ? cocktails.slice(0, limit) : cocktails).map((cocktail) => (
         <div key={cocktail.id} className="border h-100 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-200 bg-white p-3.5">
           {cocktail.image ? (
             <Image src={cocktail.image} alt={cocktail.name} width={20} height={20} className="w-full h-40 object-cover rounded-lg" />

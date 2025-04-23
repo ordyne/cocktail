@@ -22,7 +22,7 @@ export default function Header() {
 					<div className="flex items-baseline gap-4">
 						<Link href="/" className="text-lg">Home</Link>
 						<Link href="/today" className="text-lg">Today</Link>
-            <Link href="/recipes" className="text-lg">Recipes</Link>
+            <Link href="/cocktails/recipes" className="text-lg">Recipes</Link>
             <div className="w-20 p-[2px] bg-gradient-to-r from-[#ffbb76] to-[#eb5757] rounded-2xl text-center">
               <Link href="/login" className="w-18 inline-block text-md rounded-2xl bg-black p-1">로그인</Link>
               </div>

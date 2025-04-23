@@ -2,8 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import CocktailList from "@/components/CocktailList"; // 새로 만들 컴포넌트 임포트
-import ImageUploader from "@/components/imageUploader";
+import CocktailList from "@/components/CocktailList";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<string>('All'); // 기본값 'All'
@@ -25,13 +24,12 @@ export default function Home() {
       </div>
       <div className="mt-20 flex justify-between items-center">
         <p className="font-semibold text-[#EE6F6F] text-3xl">Most Popular Cocktails</p>
-        <ImageUploader />
         <ul className="flex gap-4">
          {tabs.map((tab) => (
             <li key={tab}>
               <button
                 onClick={() => setActiveTab(tab)}
-                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors duration-150 ease-in-out
+                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors duration-150 ease-in-out cursor-pointer
                   ${activeTab === tab
                     ? 'bg-white text-[#EE6F6F] shadow-sm'
                     : 'text-gray-600 hover:bg-gray-200'
@@ -45,7 +43,7 @@ export default function Home() {
       </div>
        {/* 하단 칵테일 목록 컴포넌트 렌더링 및 activeTab 전달 */}
        <div className="mt-8">
-        <CocktailList selectedTab={activeTab} />
+        <CocktailList selectedTab={activeTab} limit={3} />
       </div>
     </>
   );
